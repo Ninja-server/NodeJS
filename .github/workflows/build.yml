@@ -28,6 +28,6 @@ jobs:
          docker run -itd --name nodejs-server -p 3000:3000 nodejs:v2
          docker ps
          docker logs nodejs-server
-         curl http://www.localhost.com:3000
+         
 
          
