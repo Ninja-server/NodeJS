@@ -12,10 +12,7 @@ jobs:
          npm install
          npm fund
          npm audit fix --force
-     - name: Build the payment nodejs app
-       run : | 
-         cd PaymentApp
-         npm run build
+
   second-job: 
    needs: first-job
    runs-on: ubuntu-latest
@@ -26,5 +23,6 @@ jobs:
        uses: docker-practice/actions-setup-docker@v1
      - name: Build the docker images
        run: | 
+         cd PaymentApp
          docker build -t nodejs:v2 .
          
