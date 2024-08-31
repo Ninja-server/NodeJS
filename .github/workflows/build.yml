@@ -20,7 +20,7 @@ jobs:
      - name: Git-checkout
        uses: actions/checkout@v4.1.7
      - name: Install docker
-       uses: docker-practice/actions-setup-docker@v1
+       uses:  docker-practice/actions-setup-docker@master
      - name: Build the docker images
        run: | 
          cd PaymentApp
