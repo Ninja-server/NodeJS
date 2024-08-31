@@ -14,6 +14,7 @@ jobs:
          npm audit fix --force
      - name: Build the payment nodejs app
        run : | 
+         cd PaymentApp
          npm run build
   second-job: 
    needs: first-job
