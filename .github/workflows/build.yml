@@ -9,7 +9,7 @@ jobs:
      - name: Install nodejs
        run: |
          cd PaymentApp 
-         npm run install
+         npm install
          npm fund
          npm audit fix
      - name: Build the payment nodejs app
