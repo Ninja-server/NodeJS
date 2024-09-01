@@ -1,0 +1,28 @@
+name: nodejs-test-project
+on: 
+ push: 
+  branches: 
+   - test
+jobs: 
+  build: 
+   runs-on: self-hosted
+   steps: 
+    - name: Git-checkout
+      uses: actions/checkout@v4.1.7
+    - name: Install npm dependencies 
+      run: | 
+         cd PaymentApp 
+         npm install
+         npm fund
+         npm audit fix --force 
+    - name: Install the docker packages
+      uses: docker-practice/actions-setup-docker@master
+    - name: Build the docker images
+      run: |
+         cd PaymentApp
+         docker build -t nodejs:v2 .
+         docker run -itd --name nodejs-server -p 3000:3000 nodejs:v2
+         docker ps
+         docker logs nodejs-server
+
+
