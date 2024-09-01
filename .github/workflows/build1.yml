@@ -18,7 +18,12 @@ jobs:
          npm fund
          npm audit fix --force 
     - name: Install the docker packages
-      uses: docker-practice/actions-setup-docker@master
+      run: | 
+        sudo apt-get update -y
+        sudo apt install docker.io -y
+        sudo usermod -aG docker ubuntu
+        sudo chmod 777 /var/run/docker.sock
+        sudo systemctl restart docker
     - name: Build the docker images
       run: |
          cd PaymentApp
